@@ -1,37 +1,55 @@
 <!DOCTYPE html>
 
-<body>
-	<button onclick="downloadLatest(false)">Download Latest Release</button> <br>
-	<button onclick="downloadLatest(true)">Download Latest Beta</button> <br>
+<head>
+	<link href="stylesheet.css" rel="stylesheet" type="text/css">
+</head>
 
-	<br>
-	or...
+<body>
+	<div style="text-align: center; margin: auto; margin-top:150px;">
+		<button class="boxed" onclick="downloadLatest(false)">Download Latest Release</button>
+		<br>
+		<button class="boxed" style="margin-top:15px;" onclick="downloadLatest(true)">Download Latest Beta</button>
+	</div>
+
 	<br><br>
 
-	<label for="version">Choose a version: </label>
+	<div class="separator">
+		<div class="line"></div> 
+		<h4 style="font-family: mojangles; font-size: 20px;">Specific Versions</h4> 
+		<div class="line"></div>
+	</div>
 
-	<select name="version" id="version">
-	  <option value="The Infection 0.7.0 Beta-3.jar">0.7.0 Beta-3</option>
-	  <option value="The Infection 0.7.0 Beta-2.jar">0.7.0 Beta-2</option>
-	  <option value="The Infection 0.7.0 Beta-1.jar">0.7.0 Beta-1</option>
-	  <option value="The Infection 0.6.3.jar">0.6.3</option>
-	  <option value="The Infection 0.6.2.jar">0.6.2</option>
-	  <option value="The Infection 0.6.1.jar">0.6.1</option>
-	  <option value="The Infection 0.6.0.jar">0.6.0</option>
-	  <option value="The Infection 0.6.0 Beta-1.jar">0.6.0 Beta-1</option>
-	  <option value="The Infection 0.5.0.jar">0.5.0</option>
-	  <option value="The Infection 0.4.1.jar">0.4.1</option>
-	  <option value="The Infection 0.4.0.jar">0.4.0</option>
-	  <option value="The Infection 0.3.0.jar">0.3.0</option>
-	  <option value="The Infection 0.2.1.jar">0.2.1</option>
-	  <option value="The Infection 0.2.0.jar">0.2.0</option>
-	  <option value="The Infection 0.1.0.jar">0.1.0</option>
+	<br><br>
+
+
+	<div style="text-align: center; margin: auto;">
+
+	<label for="version" style="font-family: mojangles; font-size: 20px;">Choose a version</label>
+
+	<br><br>
+
+	<select name="version" id="version" class="boxed">
+		<option value="The Infection 0.7.0 Beta-3.jar">0.7.0 Beta-3</option>
+		<option value="The Infection 0.7.0 Beta-2.jar">0.7.0 Beta-2</option>
+		<option value="The Infection 0.7.0 Beta-1.jar">0.7.0 Beta-1</option>
+		<option value="The Infection 0.6.3.jar">0.6.3</option>
+		<option value="The Infection 0.6.2.jar">0.6.2</option>
+		<option value="The Infection 0.6.1.jar">0.6.1</option>
+		<option value="The Infection 0.6.0.jar">0.6.0</option>
+		<option value="The Infection 0.6.0 Beta-1.jar">0.6.0 Beta-1</option>
+		<option value="The Infection 0.5.0.jar">0.5.0</option>
+		<option value="The Infection 0.4.1.jar">0.4.1</option>
+		<option value="The Infection 0.4.0.jar">0.4.0</option>
+		<option value="The Infection 0.3.0.jar">0.3.0</option>
+		<option value="The Infection 0.2.1.jar">0.2.1</option>
+		<option value="The Infection 0.2.0.jar">0.2.0</option>
+		<option value="The Infection 0.1.0.jar">0.1.0</option>
 	</select> 
 
-	<br><br>
+	<button class="boxed" onclick="downloadVersion(document.getElementById('version').selectedOptions[0].value)">Download</button>
 
-	<button onclick="downloadVersion(document.getElementById('version').selectedOptions[0].value)">Download</button>
-
+	</div>
+	
 	<script>
 		function downloadVersion(version) {
 			window.open(("./versions/" + version).replace(/\s/g, "%20"));
